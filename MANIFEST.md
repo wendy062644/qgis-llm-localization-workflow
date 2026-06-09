@@ -8,6 +8,7 @@ This table-only package keeps public paper-table CSVs compact and excludes detai
 - `.gitignore`
 - `MANIFEST.md`
 - `README.md`
+- `README.zh-TW.md`
 - `artifacts`
 - `configs`
 - `data`

@@ -1,51 +1,14 @@
 # QGIS LLM Localization — Table-Only Reproducibility Package
 
-這個整理版的目標是：讓 reviewer 在新環境中用最少步驟重現論文中公開呈現的表格，而且 **CSV 欄位與 Python console 輸出只保留論文表格內出現的資訊**。
+Traditional Chinese version: [README.zh-TW.md](README.zh-TW.md)
 
-預設指令不會呼叫 Grok、Gemini 或 TAIDE，也不會重跑 3000 筆或 full-corpus 評分；它只會重建並印出 paper-facing tables。
+This is the compact reproducibility package for the paper **Toward Reliable Localization of Free and Open Source Software: LLM-assisted Translation Workflows for QGIS**.
 
-## 1. 建立新環境
+The default commands are intentionally small and offline. They do **not** call Grok, Gemini, or TAIDE, and they do **not** rerun the 3000-segment or full-corpus experiments. They only regenerate and print the paper-facing tables whose columns match the manuscript tables.
 
-macOS / Linux:
+## 1. What this package reproduces
 
-```bash
-python -m venv .venv
-source .venv/bin/activate
-python -m pip install --upgrade pip
-pip install -r requirements.txt
-```
-
-Windows PowerShell:
-
-```powershell
-python -m venv .venv
-.\.venv\Scripts\Activate.ps1
-python -m pip install --upgrade pip
-pip install -r requirements.txt
-```
-
-`requirements.txt` 預設沒有外部套件，因為 quickstart 只需要 Python standard library。
-
-## 2. 一行重現並印出論文結果表
-
-```bash
-python scripts/run_repro.py quickstart
-```
-
-這個指令會產生並列印：
-
-```text
-artifacts/paper_tables/table3_ablation.csv
-artifacts/paper_tables/table3_ablation.md
-artifacts/paper_tables/table4_full_corpus.csv
-artifacts/paper_tables/table4_full_corpus.md
-```
-
-Console 只會顯示論文的 compact ablation table 與 full-corpus C1 table，不會輸出 structure breakdown、MQM merged rows、deterministic issue pivots 或大型 logs。
-
-## 3. 目前保留的 CSV
-
-本 repo 內預設只保留 paper-facing CSV：
+The default workflow regenerates these compact tables:
 
 ```text
 artifacts/paper_tables/table1_model_backends.csv
@@ -55,70 +18,156 @@ artifacts/paper_tables/table4_full_corpus.csv
 artifacts/paper_tables/artifact_map.csv
 ```
 
-這些 CSV 的欄位都對應論文表格，不含額外中間分析欄位。
+The main result tables are:
 
-## 4. 表格內容
+```text
+artifacts/paper_tables/table3_ablation.csv
+artifacts/paper_tables/table4_full_corpus.csv
+```
 
-### Table 3: compact ablation summary
+Python console output is also table-only. It prints the compact ablation table and the full-corpus C1 table, without detailed diagnostic CSVs, merged MQM rows, structure pivots, request logs, or translation logs.
 
-| Backend | Cond. | Short name | Structure failed % ↓ | Det. QA ↑ | MQM-ER ↓ |
-|---|---|---|---:|---:|---:|
-| Grok 4.3 | C0 | Direct baseline | 5.67 | 93.60 | 6.289 ± 0.368 |
-| Grok 4.3 | C1 | Full workflow | 0.00 | 92.57 | 9.005 ± 2.807 |
-| Grok 4.3 | C2 | No-mask + ODS | 5.13 | 94.54 | 3.630 ± 1.488 |
-| Grok 4.3 | C4 | Single-candidate | 0.00 | 92.40 | 11.016 ± 2.372 |
-| Gemini 3.1 Flash-Lite | C0 | Direct baseline | 8.70 | 92.72 | 7.194 ± 1.702 |
-| Gemini 3.1 Flash-Lite | C1 | Full workflow | 0.00 | 92.97 | 11.109 ± 2.481 |
-| Gemini 3.1 Flash-Lite | C2 | No-mask + ODS | 9.30 | 92.81 | 4.904 ± 1.945 |
-| Gemini 3.1 Flash-Lite | C4 | Single-candidate | 0.00 | 92.82 | 12.482 ± 3.276 |
-| TAIDE 12B | C0 | Direct baseline | 30.10 | 76.11 | 37.339 ± 10.414 |
-| TAIDE 12B | C1 | Full workflow | 0.00 | 84.52 | 40.736 ± 6.212 |
-| TAIDE 12B | C2 | No-mask + ODS | 25.17 | 79.63 | 31.564 ± 5.943 |
-| TAIDE 12B | C4 | Single-candidate | 0.00 | 80.72 | 41.402 ± 6.335 |
+## 2. Requirements
 
-### Table 4: full-corpus C1 production-condition comparison
+Use Python 3.10 or newer.
 
-| Backend | Messages checked | Structure failed % ↓ | Structure score ↑ | Det. QA ↑ | Avg. valid candidates | Possibly untranslated |
-|---|---:|---:|---:|---:|---:|---:|
-| Grok 4.3 | 28,924 | 0.00 | 100.000 | 92.11 | 2.938 | 1,394 (4.82%) |
-| Gemini 3.1 Flash-Lite | 28,924 | 0.00 | 100.000 | 90.09 | 2.935 | 1,825 (6.31%) |
-| TAIDE 12B | 28,924 | 0.00 | 100.000 | 65.13 | 2.052 | 6,674 (23.07%) |
+The default quickstart uses only the Python standard library. `requirements.txt` is still provided so that a reviewer can follow a normal reproducibility setup.
 
-## 5. 保留的實驗內容
+## 3. Quickstart on macOS / Linux
 
-為了避免 repo 過大與表格欄位過多，已移除詳細 CSV 報表與中間 log。仍保留：
+From a fresh terminal, run these commands one by one:
+
+```bash
+cd qgis_translation_repro_table_only
+python -m venv .venv
+source .venv/bin/activate
+python -m pip install --upgrade pip
+pip install -r requirements.txt
+python scripts/run_repro.py quickstart
+```
+
+Expected result: the terminal prints two Markdown tables:
+
+```text
+Compact ablation summary on the 3000-segment subset
+Full-corpus C1 production-condition comparison
+```
+
+The regenerated CSV and Markdown files are written to:
+
+```text
+artifacts/paper_tables/
+```
+
+## 4. Quickstart on Windows PowerShell
+
+From a fresh PowerShell window, run these commands one by one:
+
+```powershell
+cd qgis_translation_repro_table_only
+python -m venv .venv
+.\.venv\Scripts\Activate.ps1
+python -m pip install --upgrade pip
+pip install -r requirements.txt
+python scripts/run_repro.py quickstart
+```
+
+If PowerShell blocks virtual-environment activation, run:
+
+```powershell
+Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass
+.\.venv\Scripts\Activate.ps1
+```
+
+Then continue with:
+
+```powershell
+python -m pip install --upgrade pip
+pip install -r requirements.txt
+python scripts/run_repro.py quickstart
+```
+
+## 5. Available reviewer commands
+
+Regenerate and print the paper-facing tables:
+
+```bash
+python scripts/run_repro.py quickstart
+```
+
+Alias of `quickstart`:
+
+```bash
+python scripts/run_repro.py tables
+```
+
+List bundled compact CSV tables and archived translated outputs:
+
+```bash
+python scripts/run_repro.py list
+```
+
+## 6. Included files
+
+The package keeps only the files needed for compact table reproduction and auditability:
 
 ```text
 data/raw/qgis_en.ts
-data/glossary/1.ods, data/glossary/2.ods
+data/glossary/1.ods
+data/glossary/2.ods
+configs/conditions.json
+configs/suites.json
+artifacts/paper_tables/*.csv
+artifacts/paper_tables/*.md
 experiments/*/outputs_ts/*.ts
 experiments/*/workflow_manifest.json
 experiments/*/conditions/*/condition.json
-configs/conditions.json
-configs/suites.json
-scripts/reproduce_paper_tables.py
+experiments/*/subset/subset_summary.json
 scripts/run_repro.py
+scripts/reproduce_paper_tables.py
+scripts/full_pipeline/
 ```
 
-原本會產生詳細 diagnostics 的完整 pipeline 程式碼放在：
+Detailed intermediate CSVs and logs are intentionally excluded from the default package. The included CSV files only contain columns that appear in the manuscript tables.
+
+## 7. Optional full pipeline scripts
+
+The original workflow scripts are kept under:
 
 ```text
 scripts/full_pipeline/
 ```
 
-預設 README 不要求執行它們，因為它們會產生較多中間 CSV 與分析檔；若要完整重跑 workflow，請先安裝：
+They are not part of the default quickstart because they may generate additional diagnostics and can take longer to run. Install optional dependencies only when you need to inspect or adapt the full workflow:
 
 ```bash
 pip install -r requirements-full.txt
 ```
 
-## 6. 安全與 API key
+The table-only quickstart does not require these optional dependencies.
 
-這個整理版不包含 API key。需要 API 重新翻譯時，請用環境變數，不要把 key 寫進 `.py` 檔：
+## 8. API keys
+
+This package does not include API keys. The default quickstart does not need any API key.
+
+For API-based translation reruns, use environment variables instead of hard-coding keys in Python files:
 
 ```bash
 export XAI_API_KEY="..."
 export GEMINI_API_KEY="..."
 ```
 
-預設 quickstart 不需要任何 key。
+Windows PowerShell:
+
+```powershell
+$env:XAI_API_KEY="..."
+$env:GEMINI_API_KEY="..."
+```
+
+Do not commit `.env`, token files, request logs, or private credentials.
+
+## 9. Expected interpretation
+
+This table-only package is designed for fast verification of the paper-facing results. It supports the claim that the reported tables can be regenerated from the archived artifact without new model calls.
+
+It is not intended to be a full-cost rerun package by default. Full translation reruns require model access, API keys or local model setup, and additional runtime.
