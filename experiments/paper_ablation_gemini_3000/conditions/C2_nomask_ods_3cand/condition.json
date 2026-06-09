@@ -1,0 +1,8 @@
+{
+  "id": "C2",
+  "slug": "C2_nomask_ods_3cand",
+  "description": "no-mask ablation: no mask + ODS + 3 candidates",
+  "mask": false,
+  "ods": true,
+  "num_candidates": 3
+}

@@ -1,0 +1,21 @@
+{
+  "input_ts": "qgis_en.ts",
+  "subset_ts": "paper_ablation_grok_3000\\subset\\qgis_en_subset_3000.ts",
+  "total_messages": 28924,
+  "selected_messages": 3000,
+  "sample_size_requested": 3000,
+  "subset_mode": "stratified",
+  "seed": 42,
+  "category_counts": {
+    "glossary": 2150,
+    "html_xml": 364,
+    "number_code_newline": 769,
+    "other_placeholder": 61,
+    "ordinary": 326,
+    "qt_placeholder": 809,
+    "accelerator": 365,
+    "long": 551,
+    "numerus": 186
+  },
+  "selected_segments_csv": "paper_ablation_grok_3000\\subset\\selected_segments.csv"
+}

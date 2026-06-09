@@ -1,0 +1,15 @@
+{
+  "demo": {
+    "grok": "demo_ablation_grok_100"
+  },
+  "paper-ablation": {
+    "grok": "paper_ablation_grok_3000",
+    "gemini": "paper_ablation_gemini_3000",
+    "taide": "paper_ablation_taide_3000"
+  },
+  "paper-full-c1": {
+    "grok": "paper_full_grok_C1",
+    "gemini": "paper_full_gemini_C1",
+    "taide": "paper_full_taide_C1"
+  }
+}

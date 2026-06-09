@@ -1,0 +1,68 @@
+{
+  "provider": "gemini",
+  "model_id": "gemini-3.1-flash-lite",
+  "workdir": "paper_full_gemini_C1",
+  "outputs_dir": "outputs_ts",
+  "subset": {
+    "total_messages": 28924,
+    "selected_messages": 28924,
+    "sample_size_requested": 0,
+    "subset_mode": "first",
+    "seed": 42,
+    "category_counts": {
+      "glossary": 20145,
+      "html_xml": 534,
+      "number_code_newline": 2168,
+      "other_placeholder": 250,
+      "ordinary": 7226,
+      "long": 1036,
+      "qt_placeholder": 2700,
+      "accelerator": 433,
+      "numerus": 186
+    },
+    "selected_segments_csv": "subset/selected_segments.csv"
+  },
+  "conditions": [
+    {
+      "id": "C0",
+      "slug": "C0_baseline_nomask_noods_1cand",
+      "description": "baseline: no mask + no ODS + 1 candidate",
+      "mask": false,
+      "ods": false,
+      "num_candidates": 1
+    },
+    {
+      "id": "C1",
+      "slug": "C1_full_mask_ods_3cand",
+      "description": "full system: mask + ODS + 3 candidates",
+      "mask": true,
+      "ods": true,
+      "num_candidates": 3
+    },
+    {
+      "id": "C2",
+      "slug": "C2_nomask_ods_3cand",
+      "description": "no-mask ablation: no mask + ODS + 3 candidates",
+      "mask": false,
+      "ods": true,
+      "num_candidates": 3
+    },
+    {
+      "id": "C3",
+      "slug": "C3_mask_noods_3cand",
+      "description": "no-glossary ablation: mask + no ODS + 3 candidates",
+      "mask": true,
+      "ods": false,
+      "num_candidates": 3
+    },
+    {
+      "id": "C4",
+      "slug": "C4_mask_ods_1cand",
+      "description": "no-multi-candidate ablation: mask + ODS + 1 candidate",
+      "mask": true,
+      "ods": true,
+      "num_candidates": 1
+    }
+  ],
+  "packaging_note": "Sanitized and path-normalized for GitHub reproducibility package."
+}

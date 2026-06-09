@@ -1,0 +1,42 @@
+{
+  "C0": {
+    "id": "C0",
+    "slug": "C0_baseline_nomask_noods_1cand",
+    "description": "baseline: no mask + no ODS + 1 candidate",
+    "mask": false,
+    "ods": false,
+    "num_candidates": 1
+  },
+  "C1": {
+    "id": "C1",
+    "slug": "C1_full_mask_ods_3cand",
+    "description": "full system: mask + ODS + 3 candidates",
+    "mask": true,
+    "ods": true,
+    "num_candidates": 3
+  },
+  "C2": {
+    "id": "C2",
+    "slug": "C2_nomask_ods_3cand",
+    "description": "no-mask ablation: no mask + ODS + 3 candidates",
+    "mask": false,
+    "ods": true,
+    "num_candidates": 3
+  },
+  "C3": {
+    "id": "C3",
+    "slug": "C3_mask_noods_3cand",
+    "description": "no-glossary ablation: mask + no ODS + 3 candidates",
+    "mask": true,
+    "ods": false,
+    "num_candidates": 3
+  },
+  "C4": {
+    "id": "C4",
+    "slug": "C4_mask_ods_1cand",
+    "description": "no-multi-candidate ablation: mask + ODS + 1 candidate",
+    "mask": true,
+    "ods": true,
+    "num_candidates": 1
+  }
+}

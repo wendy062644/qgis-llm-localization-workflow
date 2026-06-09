@@ -1,0 +1,69 @@
+{
+  "provider": "grok",
+  "model_id": "grok-4.3",
+  "workdir": "demo_ablation_grok_100",
+  "outputs_dir": "outputs_ts",
+  "subset": {
+    "total_messages": 28924,
+    "selected_messages": 100,
+    "sample_size_requested": 100,
+    "subset_mode": "stratified",
+    "seed": 42,
+    "category_counts": {
+      "glossary": 68,
+      "html_xml": 15,
+      "long": 17,
+      "number_code_newline": 29,
+      "numerus": 11,
+      "qt_placeholder": 32,
+      "ordinary": 10,
+      "accelerator": 12,
+      "other_placeholder": 4
+    },
+    "selected_segments_csv": "subset/selected_segments.csv",
+    "subset_ts": "subset/qgis_en_subset_100.ts"
+  },
+  "conditions": [
+    {
+      "id": "C0",
+      "slug": "C0_baseline_nomask_noods_1cand",
+      "description": "baseline: no mask + no ODS + 1 candidate",
+      "mask": false,
+      "ods": false,
+      "num_candidates": 1
+    },
+    {
+      "id": "C1",
+      "slug": "C1_full_mask_ods_3cand",
+      "description": "full system: mask + ODS + 3 candidates",
+      "mask": true,
+      "ods": true,
+      "num_candidates": 3
+    },
+    {
+      "id": "C2",
+      "slug": "C2_nomask_ods_3cand",
+      "description": "no-mask ablation: no mask + ODS + 3 candidates",
+      "mask": false,
+      "ods": true,
+      "num_candidates": 3
+    },
+    {
+      "id": "C3",
+      "slug": "C3_mask_noods_3cand",
+      "description": "no-glossary ablation: mask + no ODS + 3 candidates",
+      "mask": true,
+      "ods": false,
+      "num_candidates": 3
+    },
+    {
+      "id": "C4",
+      "slug": "C4_mask_ods_1cand",
+      "description": "no-multi-candidate ablation: mask + ODS + 1 candidate",
+      "mask": true,
+      "ods": true,
+      "num_candidates": 1
+    }
+  ],
+  "packaging_note": "Sanitized and path-normalized for GitHub reproducibility package."
+}

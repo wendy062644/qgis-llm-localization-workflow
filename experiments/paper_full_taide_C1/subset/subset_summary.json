@@ -1,0 +1,22 @@
+{
+  "input_ts": "qgis_en.ts",
+  "subset_ts": "paper_full_taide_C1/subset/qgis_en_subset_full.ts",
+  "total_messages": 28924,
+  "selected_messages": 28924,
+  "sample_size_requested": 0,
+  "subset_mode": "first",
+  "seed": 42,
+  "reuse_subset_from": "",
+  "category_counts": {
+    "glossary": 20145,
+    "html_xml": 534,
+    "number_code_newline": 2168,
+    "other_placeholder": 250,
+    "ordinary": 7226,
+    "long": 1036,
+    "qt_placeholder": 2700,
+    "accelerator": 433,
+    "numerus": 186
+  },
+  "selected_segments_csv": "paper_full_taide_C1/subset/selected_segments.csv"
+}

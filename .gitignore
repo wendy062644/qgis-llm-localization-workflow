@@ -1,0 +1,13 @@
+.venv/
+__pycache__/
+*.pyc
+.env
+.env.*
+*.key
+secrets/
+runs/
+results/
+# Detailed outputs generated only by optional full_pipeline scripts
+experiments/*/statistics/
+experiments/*/evaluation/
+experiments/*/mqm_quality_grokjudge/

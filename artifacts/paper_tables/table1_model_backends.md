@@ -1,0 +1,7 @@
+# Model backends
+
+| Backend | Access | Model ID | Role |
+|---|---|---|---|
+| Gemini | API | gemini-3.1-flash-lite | Translation backend |
+| Grok | API | grok-4.3 | Translation backend and MQM judge |
+| TAIDE | Local | taide/Gemma-3-TAIDE-12b-Chat-2602 | Local translation backend |

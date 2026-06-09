@@ -1,0 +1,8 @@
+{
+  "id": "C4",
+  "slug": "C4_mask_ods_1cand",
+  "description": "no-multi-candidate ablation: mask + ODS + 1 candidate",
+  "mask": true,
+  "ods": true,
+  "num_candidates": 1
+}
