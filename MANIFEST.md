@@ -1,26 +1,17 @@
-# Package manifest
+# Manifest
 
-This table-only package keeps public paper-table CSVs compact and excludes detailed diagnostic CSVs/logs by default.
+This is a compact mini full reproduction package.
 
-## Included top-level contents
+## Main files
 
-- `.env.example`
-- `.gitignore`
-- `MANIFEST.md`
-- `README.md`
-- `README.zh-TW.md`
-- `artifacts`
-- `configs`
-- `data`
-- `experiments`
-- `requirements-full.txt`
-- `requirements.txt`
-- `scripts`
-
-## Paper-facing CSV files
-
-- `artifacts/paper_tables/artifact_map.csv`
-- `artifacts/paper_tables/table1_model_backends.csv`
-- `artifacts/paper_tables/table2_ablation_conditions.csv`
-- `artifacts/paper_tables/table3_ablation.csv`
-- `artifacts/paper_tables/table4_full_corpus.csv`
+- `README.md`: English instructions.
+- `README.zh-TW.md`: Traditional Chinese instructions.
+- `scripts/run_repro.py`: Unified entry point.
+- `scripts/run_qgis.py`: API translation workflow for Grok/Gemini smoke runs.
+- `scripts/evaluate_all.py`: Deterministic evaluator.
+- `scripts/score_qgis.py`: Condition-level scorer.
+- `scripts/compare_qgis.py`: Cross-condition comparison.
+- `scripts/mqm_qgis_evaluator.py`: MQM-style judge request builder / optional runner.
+- `data/raw/qgis_en.ts`: Source TS file.
+- `data/glossary/1.ods`, `data/glossary/2.ods`: Glossary files.
+- `experiments/demo_ablation_grok_100/`: Archived 100-segment C0-C4 demo outputs.

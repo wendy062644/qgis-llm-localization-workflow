@@ -1,0 +1,27 @@
+[discover] 5 .ts file(s) selected
+[load] loading glossary files once: 1.ods, 2.ods
+[file 1/5] /mnt/data/qgis_mini_full_repro/qgis_translation_mini_full_repro/experiments/demo_ablation_grok_100/outputs_ts/C0_baseline_nomask_noods_1cand.ts
+[load] parsing TS: /mnt/data/qgis_mini_full_repro/qgis_translation_mini_full_repro/experiments/demo_ablation_grok_100/outputs_ts/C0_baseline_nomask_noods_1cand.ts
+[load] parsed 100 segments
+[glossary] {'engine': 'hash_ngram', 'entry_count': 0, 'indexed_entry_count': 0, 'fallback_entry_count': 0, 'skipped_long_entry_count': 0, 'max_ngram': 8, 'bucket_sizes_by_ngram_length': {}}
+[script-check] {'mode': 'none', 'unihan_source': '', 'unihan_candidate_char_count': 0, 'opencc_available': False, 'warnings': []}
+[file 2/5] /mnt/data/qgis_mini_full_repro/qgis_translation_mini_full_repro/experiments/demo_ablation_grok_100/outputs_ts/C1_full_mask_ods_3cand.ts
+[load] parsing TS: /mnt/data/qgis_mini_full_repro/qgis_translation_mini_full_repro/experiments/demo_ablation_grok_100/outputs_ts/C1_full_mask_ods_3cand.ts
+[load] parsed 100 segments
+[glossary] {'engine': 'hash_ngram', 'entry_count': 0, 'indexed_entry_count': 0, 'fallback_entry_count': 0, 'skipped_long_entry_count': 0, 'max_ngram': 8, 'bucket_sizes_by_ngram_length': {}}
+[script-check] {'mode': 'none', 'unihan_source': '', 'unihan_candidate_char_count': 0, 'opencc_available': False, 'warnings': []}
+[file 3/5] /mnt/data/qgis_mini_full_repro/qgis_translation_mini_full_repro/experiments/demo_ablation_grok_100/outputs_ts/C2_nomask_ods_3cand.ts
+[load] parsing TS: /mnt/data/qgis_mini_full_repro/qgis_translation_mini_full_repro/experiments/demo_ablation_grok_100/outputs_ts/C2_nomask_ods_3cand.ts
+[load] parsed 100 segments
+[glossary] {'engine': 'hash_ngram', 'entry_count': 0, 'indexed_entry_count': 0, 'fallback_entry_count': 0, 'skipped_long_entry_count': 0, 'max_ngram': 8, 'bucket_sizes_by_ngram_length': {}}
+[script-check] {'mode': 'none', 'unihan_source': '', 'unihan_candidate_char_count': 0, 'opencc_available': False, 'warnings': []}
+[file 4/5] /mnt/data/qgis_mini_full_repro/qgis_translation_mini_full_repro/experiments/demo_ablation_grok_100/outputs_ts/C3_mask_noods_3cand.ts
+[load] parsing TS: /mnt/data/qgis_mini_full_repro/qgis_translation_mini_full_repro/experiments/demo_ablation_grok_100/outputs_ts/C3_mask_noods_3cand.ts
+[load] parsed 100 segments
+[glossary] {'engine': 'hash_ngram', 'entry_count': 0, 'indexed_entry_count': 0, 'fallback_entry_count': 0, 'skipped_long_entry_count': 0, 'max_ngram': 8, 'bucket_sizes_by_ngram_length': {}}
+[script-check] {'mode': 'none', 'unihan_source': '', 'unihan_candidate_char_count': 0, 'opencc_available': False, 'warnings': []}
+[file 5/5] /mnt/data/qgis_mini_full_repro/qgis_translation_mini_full_repro/experiments/demo_ablation_grok_100/outputs_ts/C4_mask_ods_1cand.ts
+[load] parsing TS: /mnt/data/qgis_mini_full_repro/qgis_translation_mini_full_repro/experiments/demo_ablation_grok_100/outputs_ts/C4_mask_ods_1cand.ts
+[load] parsed 100 segments
+[glossary] {'engine': 'hash_ngram', 'entry_count': 0, 'indexed_entry_count': 0, 'fallback_entry_count': 0, 'skipped_long_entry_count': 0, 'max_ngram': 8, 'bucket_sizes_by_ngram_length': {}}
+[script-check] {'mode': 'none', 'unihan_source': '', 'unihan_candidate_char_count': 0, 'opencc_available': False, 'warnings': []}

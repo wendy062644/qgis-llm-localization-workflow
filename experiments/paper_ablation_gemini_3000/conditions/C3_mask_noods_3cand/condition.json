@@ -1,8 +1,0 @@
-{
-  "id": "C3",
-  "slug": "C3_mask_noods_3cand",
-  "description": "no-glossary ablation: mask + no ODS + 3 candidates",
-  "mask": true,
-  "ods": false,
-  "num_candidates": 3
-}

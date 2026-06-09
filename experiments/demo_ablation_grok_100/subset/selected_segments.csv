@@ -1,0 +1,134 @@
+﻿original_index,context,source,numerus,categories,translation_type,locations
+237,BoxPlot,Plots,False,glossary,,
+438,DBManagerPlugin,<warning> This user has no privileges!,False,glossary;html_xml,,
+2646,QGISAlgorithm,"This algorithm takes a points layer and generates a polygon layer containing the voronoi polygons corresponding to those input points.
+",False,glossary;long;number_code_newline,,
+2674,QGISAlgorithm,"This algorithm performs a validity check on the geometries of a vector layer.
+The geometries are classified in three groups (valid, invalid and error), and a vector layer is generated with the features in each of these categories.
+By default the algorithm uses the strict OGC definition of polygon validity, where a polygon is marked as invalid if a self-intersecting ring causes an interior hole. If the ""Ignore ring self intersections"" option is checked, then this rule will be ignored and a more lenient validity check will be performed.
+",False,glossary;long;number_code_newline,,
+2816,QObject,Function `attribute` requires one or two parameters. %n given.,True,glossary;numerus;qt_placeholder,,../src/core/expression/qgsexpressionfunction.cpp:1724
+3217,QObject,Import was canceled at %1 of %2,False,glossary;qt_placeholder,,../src/core/vector/qgsvectorlayerexporter.cpp:409
+3446,QObject,UK. NTF2,False,ordinary,,../src/core/providers/ogr/qgsogrproviderutils.cpp:446
+3539,QObject,"Unable to delete view %1: 
+%2",False,glossary;number_code_newline;qt_placeholder,,../src/providers/postgres/qgspostgresdataitems.cpp:71
+3652,QObject,Save style to DB (%1),False,glossary;qt_placeholder,,../src/gui/vector/qgsvectorlayerproperties.cpp:1250
+3819,QObject,"Multiple matching features found at same distance from search feature, found %n feature(s)",True,glossary;numerus;qt_placeholder,,../src/analysis/processing/qgsalgorithmangletonearest.cpp:269
+3838,QObject,Invalid field specified for MIN_FIELD: %1,False,glossary;qt_placeholder,,../src/analysis/processing/qgsalgorithmreclassifybylayer.cpp:205
+3893,QObject,Last,False,ordinary,,../src/core/qgsstatisticalsummary.cpp:337
+4053,QObject,Cached authentication configurations for session cleared,False,ordinary,,../src/gui/auth/qgsauthguiutils.cpp:240
+4159,QObject,%n argument(s),True,numerus;qt_placeholder,,../src/gui/qgssqlcomposerdialog.cpp:448
+4381,QObject,"This algorithm creates hub and spoke diagrams by connecting lines from points on the Spoke layer to matching points in the Hub layer.
+
+Determination of which hub goes with each point is based on a match between the Hub ID field on the hub points and the Spoke ID field on the spoke points.
+
+If input layers are not point layers, a point on the surface of the geometries will be taken as the connecting location.
+
+Optionally, geodesic lines can be created, which represent the shortest path on the surface of an ellipsoid. When geodesic mode is used, it is possible to split the created lines at the antimeridian (±180 degrees longitude), which can improve rendering of the lines. Additionally, the distance between vertices can be specified. A smaller distance results in a denser, more accurate line.",False,glossary;long;number_code_newline,,../src/analysis/processing/qgsalgorithmjoinwithlines.cpp:91
+4420,QObject,"This algorithm combines multiple vector layers of the same geometry type into a single one.
+
+The attribute table of the resulting layer will contain the fields from all input layers. If fields with the same name but different types are found then the exported field will be automatically converted into a string type field. New fields storing the original layer name and source are also added.
+
+If any input layers contain Z or M values, then the output layer will also contain these values. Similarly, if any of the input layers are multi-part, the output layer will also be a multi-part layer.
+
+Optionally, the destination coordinate reference system (CRS) for the merged layer can be set. If it is not set, the CRS will be taken from the first input layer. All layers will all be reprojected to match this CRS.",False,glossary;long;number_code_newline,,../src/analysis/processing/qgsalgorithmmergevector.cpp:62
+4514,QObject,"This algorithm creates a new layer with all the selected features in a given vector layer.
+
+If the selected layer has no selected features, the newly created layer will be empty.",False,glossary;long;number_code_newline,,../src/analysis/processing/qgsalgorithmsaveselectedfeatures.cpp:57
+4665,QObject,AutoCAD 2013/2014/2015/2016/2017,False,number_code_newline,,../src/app/dwg/qgsdwgimporter.cpp:360
+5092,QObject,"double coord [<b>X,Y</b>]",False,html_xml,,../src/core/qgsproperty.cpp:116
+6022,QObject,"<p>Mean value: %1</p>
+",False,glossary;html_xml;number_code_newline;qt_placeholder,,../src/analysis/processing/qgsalgorithmrasterstatistics.cpp:115
+6340,QObject,%n feature(s) added,True,glossary;numerus;qt_placeholder,,../src/analysis/processing/qgsalgorithmdetectdatasetchanges.cpp:425
+6341,QObject,%n feature(s) deleted,True,glossary;numerus;qt_placeholder,,../src/analysis/processing/qgsalgorithmdetectdatasetchanges.cpp:426
+6746,QObject,"This algorithm extracts the attribute encoding information embedded in a Shapefile.
+
+Both the encoding specified by an optional .cpg file and any encoding details present in the .dbf LDID header block are considered.",False,glossary;long;number_code_newline,,../src/analysis/processing/qgsalgorithmshpencodinginfo.cpp:50
+6790,QObject,"Error exporting to PostGIS
+%1",False,glossary;number_code_newline;qt_placeholder,,../src/analysis/processing/qgsalgorithmexporttopostgresql.cpp:156; ../src/analysis/processing/qgsalgorithmexporttopostgresql.cpp:178
+6805,QObject,Creating layer: %1,False,glossary;qt_placeholder,,../src/analysis/processing/qgsalgorithmsplitvectorlayer.cpp:144
+6923,QObject,"Layer short name is not valid. It must start with an unaccented alphabetical letter, followed by any alphanumeric letters, dot, dash or underscore",False,glossary;long,,../src/core/project/qgsprojectservervalidator.cpp:33
+7021,QObject,-180 to +180°,False,number_code_newline,,../src/gui/numericformats/qgsnumericformatwidget.cpp:147
+7262,QObject,Maximum number of neighbors,False,ordinary,,../src/analysis/processing/qgsalgorithmshortestline.cpp:79
+7348,QObject,Feature (%1) from “%2” has invalid geometry. Please fix the geometry or change the “Invalid features filtering” option for this input or globally in Processing settings.,False,glossary;long;qt_placeholder,,../src/core/processing/qgsprocessingcontext.cpp:87
+7845,QgisApp,"Successfully saved scratch layer to <a href=""%1"">%2</a>",False,glossary;html_xml;qt_placeholder,,../src/app/qgisapp.cpp:8010
+8036,QgisApp,"%1 features on layer %2 duplicated
+%3",False,glossary;number_code_newline;qt_placeholder,,../src/app/qgisapp.cpp:16523
+8274,QgsActionMenu,&Actions,False,accelerator,,../src/gui/qgsactionmenu.cpp:44
+8446,QgsAlignRasterLayerConfigDialog,Browse…,False,ordinary,,../src/app/qgsalignrasterdialog.cpp:416
+8626,QgsAppFileItemGuiProvider,Could not delete %n file(s),True,glossary;numerus;qt_placeholder,,../src/app/browser/qgsinbuiltdataitemproviders.cpp:769
+8642,QgsAppLayerTreeViewMenuProvider,&Stretch Using Current Extent,False,accelerator;glossary,,../src/app/qgsapplayertreeviewmenuprovider.cpp:221
+8648,QgsAppLayerTreeViewMenuProvider,Actions on Selection (%1),False,glossary;qt_placeholder,,../src/app/qgsapplayertreeviewmenuprovider.cpp:407
+8660,QgsAppLayerTreeViewMenuProvider,Save &As…,False,accelerator,,../src/app/qgsapplayertreeviewmenuprovider.cpp:551
+8949,QgsAttributeForm,&Flash Features,False,accelerator;glossary,,../src/gui/qgsattributeform.cpp:1952
+9264,QgsAuthCertInfo,OCSP locations,False,glossary,,../src/gui/auth/qgsauthcertificateinfo.cpp:693
+9627,QgsAuthPkiPathsEdit,%1 thru %2,False,qt_placeholder,,../src/auth/pkipaths/gui/qgsauthpkipathsedit.cpp:78
+11571,QgsExpression,"coalesce(NULL, 2)",False,number_code_newline,,
+11686,QgsExpression,"[ 4, 5 ]",False,number_code_newline,,
+12027,QgsExpression,ln(2.7182818284590452354),False,number_code_newline,,
+12368,QgsExpression,A variable width buffer starting with a diameter of 0.5 and ending with a diameter of 0.2 along the linestring geometry.,False,glossary;long;number_code_newline,,
+12404,QgsExpression,Geometry parts are specified as an array of geometry parts.,False,glossary,,
+12809,QgsExpression,z_min( geom_from_wkt( 'POINT ( 0 0 1 )' ) ),False,glossary;number_code_newline,,
+12917,QgsExpression,"an integer corresponding to the lightening factor:<ul><li>if the factor is greater than 100, this function returns a lighter color (e.g., setting factor to 150 returns a color that is 50% brighter);</li><li>if the factor is less than 100, the return color is darker, but using the darker() function for this purpose is recommended;</li><li>if the factor is 0 or negative, the return value is unspecified.</li></ul>",False,glossary;html_xml;long;number_code_newline,,
+13342,QgsExpression,"a string specifying the return values handling. Valid options are:<br><ul><li>all: Default, all most common values are returned in an array.</li><li>any: Returns one of the most common values.</li><li>median: Returns the median of the most common values. Non arithmetic values are ignored.</li><li>real_majority: Returns the value which occurs more than half the size of the array.</li></ul>",False,glossary;html_xml;long,,
+13373,QgsExpression,"array_minority(array(0,1,42,42), 'all')",False,glossary;number_code_newline,,
+14171,QgsExpression,"to_date('29 juin, 2019','d MMMM, yyyy','fr')",False,number_code_newline,,
+14185,QgsExpression,Converts a string to integer number. Nothing is returned if a value cannot be converted to integer (e.g '123asd' is invalid).,False,glossary;long,,
+15363,QgsGeorefConfigDialog,ANSI A (Letter; 8.5x11 inches),False,number_code_newline,,../src/app/georeferencer/qgsgeorefconfigdialog.cpp:46
+15514,QgsGeoreferencerMainWindow,%1,False,qt_placeholder,,../src/app/georeferencer/qgsgeorefmainwindow.cpp:2094
+15521,QgsGeoreferencerMainWindow,%1 transformation requires at least %n GCPs. Please define more.,True,glossary;numerus;qt_placeholder,,../src/app/georeferencer/qgsgeorefmainwindow.cpp:2243
+15814,QgsGrass,"GRASS was not found in '%1' (GISBASE), provider and plugin will not work.",False,qt_placeholder,,../src/providers/grass/qgsgrass.cpp:366
+16420,QgsHanaSourceSelect,XML files (*.xml *XML),False,glossary,,../src/providers/hana/qgshanasourceselect.cpp:287
+16478,QgsHeatmapRendererWidgetBase,"<html><head/><body><p><span style="" font-style:italic;"">Fastest</span></p></body></html>",False,glossary;html_xml,,../src/ui/symbollayer/qgsheatmaprendererwidgetbase.ui
+16498,QgsHtmlDataItem,&Open File…,False,accelerator;glossary,,../src/app/qgsappbrowserproviders.cpp:1346
+16866,QgsLayerMetadataLocatorFilter,Search Layer Metadata,False,glossary,,../src/app/locator/qgslayermetadatalocatorfilter.h:33
+16927,QgsLayerTreeViewDefaultActions,Zoom to &Selection,False,accelerator;glossary,,../src/gui/layertree/qgslayertreeviewdefaultactions.cpp:114
+16931,QgsLayerTreeViewDefaultActions,&Mutually Exclusive Group,False,accelerator,,../src/gui/layertree/qgslayertreeviewdefaultactions.cpp:172
+16939,QgsLayerTreeViewLowAccuracyIndicatorProvider,"Based on %1, which has a limited accuracy of <b>at best %2 meters</b>.",False,glossary;html_xml;qt_placeholder,,../src/app/qgslayertreeviewlowaccuracyindicator.cpp:72
+17228,QgsLayoutDesignerBase,S&mart Guides,False,accelerator,,../src/ui/layout/qgslayoutdesignerbase.ui
+17292,QgsLayoutDesignerBase,Resize to &Shortest,False,accelerator,,../src/ui/layout/qgslayoutdesignerbase.ui
+17784,QgsLayoutLegendNodeWidget,Insert expression,False,glossary,,../src/gui/layout/qgslayoutlegendwidget.cpp:1768
+18095,QgsLayoutMapGridWidget,Change Frame Thickness,False,ordinary,,../src/gui/layout/qgslayoutmapgridwidget.cpp:837
+19260,QgsMapToolSelectUtils::QgsMapToolSelectMenuActions,Select All (%1),False,qt_placeholder,,../src/app/qgsmaptoolselectutils.cpp:692
+19696,QgsMeshRendererVectorSettingsWidgetBase,Head Options,False,ordinary,,../src/ui/mesh/qgsmeshrenderervectorsettingswidgetbase.ui
+20097,QgsMssqlDataItemGuiProvider,Table truncated successfully.,False,glossary,,../src/providers/mssql/qgsmssqldataitemguiprovider.cpp:232
+20785,QgsOptions,Meters,False,ordinary,,../src/app/options/qgsoptions.cpp:588
+21007,QgsOptionsBase,"Specifies the change in zoom level with each move of the mouse wheel.
+The bigger the number, the faster zooming with the mouse wheel will be.",False,glossary;long;number_code_newline,,../src/ui/qgsoptionsbase.ui
+21320,QgsOracleProvider,Renaming column %1 to %2 failed,False,glossary;qt_placeholder,,../src/providers/oracle/qgsoracleprovider.cpp:1785
+21355,QgsOracleProvider,"Oracle error: %1
+Error: %2",False,glossary;number_code_newline;qt_placeholder,,../src/providers/oracle/qgsoracleprovider.h:340
+21452,QgsPdalIndexingTask,File %1 is already indexed,False,glossary;qt_placeholder,,../src/providers/pdal/qgspdalindexingtask.cpp:181; ../src/providers/pdal/qgspdalindexingtask.cpp:216
+21590,QgsPluginDependenciesDialog,Plugin dependencies for <b>%s</b>,False,glossary;html_xml;other_placeholder,,
+21608,QgsPluginInstaller,QGIS has detected an obsolete plugin that masks its more recent version shipped with this copy of QGIS. This is likely due to files associated with a previous installation of QGIS. Do you want to remove the old plugin right now and unmask the more recent version?,False,glossary;long,,
+21643,QgsPluginInstaller,Error installing plugin dependency <b>%s</b>: %s,False,glossary;html_xml;other_placeholder,,
+21809,QgsPluginManagerBase,Plugin Repositories,False,ordinary,,../src/ui/qgspluginmanagerbase.ui
+22270,QgsPostgresProvider,"Unable to execute the query.
+The error message from the database was:
+%1.
+SQL: %2",False,glossary;number_code_newline;qt_placeholder,,../src/providers/postgres/qgspostgresprovider.cpp:1681
+22417,QgsProcessingAggregateWidgetWrapper,"an array of map items, each containing a 'name', 'type', 'aggregate' and 'input' value (and optional 'length' and 'precision' values).",False,glossary;long,,../src/gui/processing/qgsprocessingaggregatewidgetwrapper.cpp:394
+23145,QgsProjectPropertiesBase,Or&ganization,False,accelerator,,../src/ui/qgsprojectpropertiesbase.ui
+23303,QgsPropertyOverrideButton,<b><u>Data defined override</u></b><br>,False,glossary;html_xml,,../src/gui/qgspropertyoverridebutton.cpp:799
+23368,QgsQueryBuilderBase,"<html><head><meta name=""qrichtext"" content=""1"" /><style type=""text/css"">
+p, li { white-space: pre-wrap; }
+</style></head><body style="" font-family:'Sans Serif'; font-size:9pt; font-weight:400; font-style:normal;"">
+<p style="" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"">Retrieve <span style="" font-weight:600;"">all</span> the record in the vector file (<span style="" font-style:italic;"">if the table is big, the operation can consume some time</span>)</p></body></html>",False,glossary;html_xml;long;number_code_newline;other_placeholder,,../src/ui/qgsquerybuilderbase.ui
+23422,QgsQuickMapSettings,Map Canvas rotation is not supported. Resetting from %1 to 0.,False,glossary;number_code_newline;qt_placeholder,,../src/quickgui/qgsquickmapsettings.cpp:256; ../src/quickgui/qgsquickmapsettings.cpp:286
+23714,QgsRasterLayerPropertiesBase,"<html><head/><body><p><span style="" font-weight:600;"">Changing this option does not modify the original data source or perform any reprojection of the raster layer. Rather, it can be used to override the layer's CRS within this project if it could not be detected or has been incorrectly detected.</span></p><p>The Processing “<span style="" font-style:italic;"">Warp (reproject)</span>” tool should be used to reproject a raster source and permanently change the data source's CRS.</p></body></html>",False,glossary;html_xml;long;number_code_newline,,../src/ui/qgsrasterlayerpropertiesbase.ui
+24079,QgsRendererRulePropsWidget,Filter returned %n feature(s),True,glossary;numerus;qt_placeholder,,../src/gui/symbology/qgsrulebasedrendererwidget.cpp:885
+24321,QgsSearchQueryBuilder,&Clear,False,accelerator,,../src/gui/qgssearchquerybuilder.cpp:72
+25096,QgsTableEditorWidget,Insert %n Row(s) Below,True,glossary;numerus;qt_placeholder,,../src/gui/tableeditor/qgstableeditorwidget.cpp:113
+25195,QgsTextFormatWidget,"Value &lt; 0 represents a scale closer than 1:1, e.g. -10 = 10:1<br>Value of 0 disables the specific limit.",False,glossary;html_xml;number_code_newline,,../src/gui/qgstextformatwidget.cpp:841
+25565,QgsVectorElevationPropertiesWidget,Fill Below,False,glossary,,../src/app/vector/qgsvectorelevationpropertieswidget.cpp:55
+26378,QgsWMSSourceSelectBase,&New,False,accelerator,,../src/ui/qgswmssourceselectbase.ui
+26567,QgsWmsDataItemGuiProvider,Edit Connection…,False,glossary,,../src/providers/wms/qgswmsdataitemguiproviders.cpp:52
+26674,QgsWmsProvider,Result parsing failed. %n feature type(s) were guessed from gml (%2) but no features were parsed.,True,glossary;numerus;qt_placeholder,,../src/providers/wms/qgswmsprovider.cpp:3731
+26734,QgsWmsProvider,Misses,False,ordinary,,../src/providers/wms/qgswmsprovider.cpp:3120
+26748,QgsWmsTiledImageDownloadHandler,", %n cache hit(s)",True,glossary;numerus;qt_placeholder,,../src/providers/wms/qgswmsprovider.cpp:4869
+27030,Setting,"Specified path does not exist:
+{0}",False,glossary;number_code_newline;other_placeholder,,
+27053,SettingsDialogPythonConsole,<PERSONAL_ACCESS_TOKEN>,False,html_xml,,../python/console/console_settings.ui
+27163,TilesXYZAlgorithmBase,Maximum zoom,False,glossary,,
+27710,WidgetVectorFieldBase,Angle Orientation,False,glossary,,../src/ui/symbollayer/widget_vectorfield.ui
+28000,grasslabels,Calculates univariate statistics of attributes for each registered vector map of a space time vector dataset,False,glossary,,

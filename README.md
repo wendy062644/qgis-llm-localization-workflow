@@ -1,173 +1,150 @@
-# QGIS LLM Localization — Table-Only Reproducibility Package
+# QGIS LLM Localization Mini Full Repro Package
 
-Traditional Chinese version: [README.zh-TW.md](README.zh-TW.md)
+This package is a **small end-to-end reproduction package** for the QGIS LLM localization workflow. It keeps the experiment structure of the paper, but the default experiment uses **100 segments instead of 3000** so reviewers can run it quickly.
 
-This is the compact reproducibility package for the paper **Toward Reliable Localization of Free and Open Source Software: LLM-assisted Translation Workflows for QGIS**.
+The default path does **not** call any model APIs. It uses archived 100-segment translated `.ts` outputs, then reruns deterministic evaluation, condition comparison, and MQM request generation.
 
-The default commands are intentionally small and offline. They do **not** call Grok, Gemini, or TAIDE, and they do **not** rerun the 3000-segment or full-corpus experiments. They only regenerate and print the paper-facing tables whose columns match the manuscript tables.
+## What this package can reproduce
 
-## 1. What this package reproduces
+| Level | Command | Model calls? | Purpose |
+|---|---|---:|---|
+| Mini full reproduction | `python scripts/run_repro.py full-mini` | No | Rerun deterministic scoring on the bundled 100-segment C0-C4 outputs, compare conditions, and generate a tiny MQM request plan. |
+| Deterministic scoring only | `python scripts/run_repro.py score --experiment demo_ablation_grok_100 --force-eval` | No | Recompute structure and deterministic QA metrics from archived `.ts` files. |
+| MQM request planning | `python scripts/run_repro.py mqm --experiment demo_ablation_grok_100 --total-request-budget 5` | No | Build the exact MQM judge requests without sending them. |
+| MQM judge run | `python scripts/run_repro.py mqm --experiment demo_ablation_grok_100 --total-request-budget 5 --run-grok` | Yes, Grok/xAI key required | Actually run a tiny MQM-style judge evaluation. |
+| New translation smoke run | `python scripts/run_repro.py translate --provider grok --sample-size 20 --conditions C1 --run-eval` | Yes | Regenerate a small translation run with an API backend. |
 
-The default workflow regenerates these compact tables:
+## Install
 
-```text
-artifacts/paper_tables/table1_model_backends.csv
-artifacts/paper_tables/table2_ablation_conditions.csv
-artifacts/paper_tables/table3_ablation.csv
-artifacts/paper_tables/table4_full_corpus.csv
-artifacts/paper_tables/artifact_map.csv
-```
-
-The main result tables are:
-
-```text
-artifacts/paper_tables/table3_ablation.csv
-artifacts/paper_tables/table4_full_corpus.csv
-```
-
-Python console output is also table-only. It prints the compact ablation table and the full-corpus C1 table, without detailed diagnostic CSVs, merged MQM rows, structure pivots, request logs, or translation logs.
-
-## 2. Requirements
-
-Use Python 3.10 or newer.
-
-The default quickstart uses only the Python standard library. `requirements.txt` is still provided so that a reviewer can follow a normal reproducibility setup.
-
-## 3. Quickstart on macOS / Linux
-
-From a fresh terminal, run these commands one by one:
+### macOS / Linux
 
 ```bash
-cd qgis_translation_repro_table_only
+cd qgis_translation_mini_full_repro
 python -m venv .venv
 source .venv/bin/activate
 python -m pip install --upgrade pip
 pip install -r requirements.txt
-python scripts/run_repro.py quickstart
 ```
 
-Expected result: the terminal prints two Markdown tables:
-
-```text
-Compact ablation summary on the 3000-segment subset
-Full-corpus C1 production-condition comparison
-```
-
-The regenerated CSV and Markdown files are written to:
-
-```text
-artifacts/paper_tables/
-```
-
-## 4. Quickstart on Windows PowerShell
-
-From a fresh PowerShell window, run these commands one by one:
+### Windows PowerShell
 
 ```powershell
-cd qgis_translation_repro_table_only
+cd qgis_translation_mini_full_repro
 python -m venv .venv
 .\.venv\Scripts\Activate.ps1
 python -m pip install --upgrade pip
 pip install -r requirements.txt
-python scripts/run_repro.py quickstart
 ```
 
-If PowerShell blocks virtual-environment activation, run:
-
-```powershell
-Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass
-.\.venv\Scripts\Activate.ps1
-```
-
-Then continue with:
-
-```powershell
-python -m pip install --upgrade pip
-pip install -r requirements.txt
-python scripts/run_repro.py quickstart
-```
-
-## 5. Available reviewer commands
-
-Regenerate and print the paper-facing tables:
+## Run the default mini full reproduction
 
 ```bash
-python scripts/run_repro.py quickstart
+python scripts/run_repro.py full-mini
 ```
 
-Alias of `quickstart`:
+This will run:
 
-```bash
-python scripts/run_repro.py tables
-```
+1. deterministic evaluator on `experiments/demo_ablation_grok_100/outputs_ts/*.ts`;
+2. scorer/comparison scripts for C0-C4;
+3. a dry-run MQM request plan with 5 total requests and no API calls.
 
-List bundled compact CSV tables and archived translated outputs:
-
-```bash
-python scripts/run_repro.py list
-```
-
-## 6. Included files
-
-The package keeps only the files needed for compact table reproduction and auditability:
+Main outputs:
 
 ```text
-data/raw/qgis_en.ts
-data/glossary/1.ods
-data/glossary/2.ods
-configs/conditions.json
-configs/suites.json
-artifacts/paper_tables/*.csv
-artifacts/paper_tables/*.md
-experiments/*/outputs_ts/*.ts
-experiments/*/workflow_manifest.json
-experiments/*/conditions/*/condition.json
-experiments/*/subset/subset_summary.json
-scripts/run_repro.py
-scripts/reproduce_paper_tables.py
-scripts/full_pipeline/
+experiments/demo_ablation_grok_100/statistics/
+results/mini_full_compare/
+results/mini_mqm_plan/
 ```
 
-Detailed intermediate CSVs and logs are intentionally excluded from the default package. The included CSV files only contain columns that appear in the manuscript tables.
+## Run only deterministic scoring
 
-## 7. Optional full pipeline scripts
+```bash
+python scripts/run_repro.py score --experiment demo_ablation_grok_100 --force-eval
+```
 
-The original workflow scripts are kept under:
+Important outputs:
 
 ```text
-scripts/full_pipeline/
+experiments/demo_ablation_grok_100/statistics/condition_summary.csv
+experiments/demo_ablation_grok_100/statistics/structure_items_long.csv
+experiments/demo_ablation_grok_100/statistics/ablation_statistics_report.md
 ```
 
-They are not part of the default quickstart because they may generate additional diagnostics and can take longer to run. Install optional dependencies only when you need to inspect or adapt the full workflow:
+## Generate MQM judge requests without API calls
 
 ```bash
-pip install -r requirements-full.txt
+python scripts/run_repro.py mqm \
+  --experiment demo_ablation_grok_100 \
+  --total-request-budget 5
 ```
 
-The table-only quickstart does not require these optional dependencies.
+This writes:
 
-## 8. API keys
+```text
+results/mini_mqm_plan/mqm_requests.jsonl
+results/mini_mqm_plan/selected_mqm_segments.csv
+results/mini_mqm_plan/mqm_report.md
+```
 
-This package does not include API keys. The default quickstart does not need any API key.
+## Actually run the MQM judge
 
-For API-based translation reruns, use environment variables instead of hard-coding keys in Python files:
+This requires a Grok/xAI API key.
 
 ```bash
-export XAI_API_KEY="..."
-export GEMINI_API_KEY="..."
+export XAI_API_KEY="your_key_here"
+python scripts/run_repro.py mqm \
+  --experiment demo_ablation_grok_100 \
+  --total-request-budget 5 \
+  --run-grok
 ```
 
-Windows PowerShell:
+On Windows PowerShell:
 
 ```powershell
-$env:XAI_API_KEY="..."
-$env:GEMINI_API_KEY="..."
+$env:XAI_API_KEY="your_key_here"
+python scripts/run_repro.py mqm --experiment demo_ablation_grok_100 --total-request-budget 5 --run-grok
 ```
 
-Do not commit `.env`, token files, request logs, or private credentials.
+The default budget is intentionally tiny. Increase `--total-request-budget` or `--sample-size` only if you want more judged segments.
 
-## 9. Expected interpretation
+## Optional: rerun a new small translation experiment
 
-This table-only package is designed for fast verification of the paper-facing results. It supports the claim that the reported tables can be regenerated from the archived artifact without new model calls.
+```bash
+export XAI_API_KEY="your_key_here"
+python scripts/run_repro.py translate \
+  --provider grok \
+  --sample-size 20 \
+  --conditions C0,C1,C2,C3,C4 \
+  --run-eval
+```
 
-It is not intended to be a full-cost rerun package by default. Full translation reruns require model access, API keys or local model setup, and additional runtime.
+For Gemini:
+
+```bash
+export GEMINI_API_KEY="your_key_here"
+python scripts/run_repro.py translate \
+  --provider gemini \
+  --sample-size 20 \
+  --conditions C1 \
+  --run-eval
+```
+
+Generated runs are written under `runs/`.
+
+## Included data
+
+```text
+data/raw/qgis_en.ts                         Original QGIS TS input
+data/glossary/1.ods, data/glossary/2.ods    ODS glossary resources
+experiments/demo_ablation_grok_100/          Archived 100-segment C0-C4 demo
+scripts/                                     Workflow, scoring, comparison, MQM tools
+configs/conditions.json                      C0-C4 condition definitions
+```
+
+## Important limitations
+
+- The default package is a **mini reproduction**: 100 segments, not the full 3000-segment paper ablation.
+- The default `full-mini` path does not regenerate translations; it recomputes metrics from archived `.ts` outputs.
+- MQM judging requires an API key if `--run-grok` is used.
+- This package supports API reruns for Grok and Gemini. TAIDE/local reruns require a separate local Hugging Face inference setup and are not bundled as a one-command path here.
+- API model outputs may change over time; archived-output scoring is the stable no-API reproducibility path.

@@ -1,0 +1,44 @@
+{
+  "input_ts": "ablation_grok_100\\subset\\qgis_en_subset_100.ts",
+  "output_ts": "ablation_grok_100\\conditions\\C4_mask_ods_1cand\\C4_mask_ods_1cand.ts",
+  "provider": "grok",
+  "model_id": "grok-4.3",
+  "workflow": "built_in_masked_template_ablation",
+  "total_segments": 100,
+  "num_candidates": 1,
+  "ods_enabled": true,
+  "api_call_count": 96,
+  "status_counts": {
+    "ok_format_safe_template": 88,
+    "copied_language_neutral": 4,
+    "structure_hard_lock_source_fallback": 8
+  },
+  "translated_ok": 88,
+  "format_safe_accept_count": 88,
+  "safe_fallback_count": 8,
+  "candidate_count_total": 96,
+  "issue_count": 0,
+  "issue_counts": {},
+  "severity_counts": {},
+  "xml_well_formed": true,
+  "xml_parse_error": "",
+  "glossary_entry_count": 10353,
+  "glossary_matcher": {
+    "entry_count": 10353,
+    "bucket_sizes_by_ngram_length": {
+      "3": 1844,
+      "2": 5988,
+      "1": 1539,
+      "4": 660,
+      "7": 26,
+      "6": 52,
+      "5": 231,
+      "8": 9
+    },
+    "max_ngram": 8
+  },
+  "reports": {
+    "translation_log": "ablation_grok_100\\conditions\\C4_mask_ods_1cand\\translation_log.jsonl",
+    "translation_issues_csv": "ablation_grok_100\\conditions\\C4_mask_ods_1cand\\translation_issues.csv"
+  }
+}

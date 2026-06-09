@@ -1,0 +1,34 @@
+{
+  "input_ts": "ablation_grok_100\\subset\\qgis_en_subset_100.ts",
+  "output_ts": "ablation_grok_100\\conditions\\C0_baseline_nomask_noods_1cand\\C0_baseline_nomask_noods_1cand.ts",
+  "provider": "grok",
+  "model_id": "grok-4.3",
+  "workflow": "raw_no_mask_ablation",
+  "total_segments": 100,
+  "num_candidates": 1,
+  "ods_enabled": false,
+  "hard_lock_final": false,
+  "raw_candidate_selection": "first",
+  "api_call_count": 96,
+  "status_counts": {
+    "raw_selected": 96,
+    "segments_with_issues": 5,
+    "copied_language_neutral": 4
+  },
+  "issue_count": 5,
+  "issue_counts": {
+    "newline_count_mismatch": 3,
+    "accelerator_count_mismatch": 2
+  },
+  "severity_counts": {
+    "minor": 5
+  },
+  "xml_well_formed": true,
+  "xml_parse_error": "",
+  "glossary_entry_count": 0,
+  "glossary_matcher": {},
+  "reports": {
+    "translation_log": "ablation_grok_100\\conditions\\C0_baseline_nomask_noods_1cand\\translation_log.jsonl",
+    "translation_issues_csv": "ablation_grok_100\\conditions\\C0_baseline_nomask_noods_1cand\\translation_issues.csv"
+  }
+}

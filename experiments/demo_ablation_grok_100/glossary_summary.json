@@ -1,0 +1,22 @@
+{
+  "glossary_files": [
+    "1.ods",
+    "2.ods"
+  ],
+  "entry_count": 10353,
+  "warnings": [],
+  "matcher": {
+    "entry_count": 10353,
+    "bucket_sizes_by_ngram_length": {
+      "3": 1844,
+      "2": 5988,
+      "1": 1539,
+      "4": 660,
+      "7": 26,
+      "6": 52,
+      "5": 231,
+      "8": 9
+    },
+    "max_ngram": 8
+  }
+}

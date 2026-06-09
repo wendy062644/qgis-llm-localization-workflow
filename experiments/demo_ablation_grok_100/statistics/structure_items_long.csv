@@ -1,0 +1,41 @@
+﻿condition_id,condition_slug,description,item,score_0_100,affected_segment_count,affected_rate,affected_rate_pct,affected_rate_95ci_low_pct,affected_rate_95ci_high_pct,issue_count,issue_counts,severity_counts,checked_messages
+C0,C0_baseline_nomask_noods_1cand,baseline: no mask + no ODS + 1 candidate,qt_placeholder,100.0,0,0.0,0.0,0.0,3.6995,0,{},{},100
+C0,C0_baseline_nomask_noods_1cand,baseline: no mask + no ODS + 1 candidate,brace_placeholder,100.0,0,0.0,0.0,0.0,3.6995,0,{},{},100
+C0,C0_baseline_nomask_noods_1cand,baseline: no mask + no ODS + 1 candidate,printf_placeholder,100.0,0,0.0,0.0,0.0,3.6995,0,{},{},100
+C0,C0_baseline_nomask_noods_1cand,baseline: no mask + no ODS + 1 candidate,html_xml_entity,100.0,0,0.0,0.0,0.0,3.6995,0,{},{},100
+C0,C0_baseline_nomask_noods_1cand,baseline: no mask + no ODS + 1 candidate,html_xml_tag,100.0,0,0.0,0.0,0.0,3.6995,0,{},{},100
+C0,C0_baseline_nomask_noods_1cand,baseline: no mask + no ODS + 1 candidate,number,100.0,0,0.0,0.0,0.0,3.6995,0,{},{},100
+C0,C0_baseline_nomask_noods_1cand,baseline: no mask + no ODS + 1 candidate,newline,97.0,3,0.03,3.0,1.0254,8.4521,3,"{""newline_count_mismatch"": 3}","{""minor"": 3}",100
+C0,C0_baseline_nomask_noods_1cand,baseline: no mask + no ODS + 1 candidate,accelerator,98.0,2,0.02,2.0,0.5502,7.0013,2,"{""accelerator_count_mismatch"": 2}","{""minor"": 2}",100
+C1,C1_full_mask_ods_3cand,full system: mask + ODS + 3 candidates,qt_placeholder,100.0,0,0.0,0.0,0.0,3.6995,0,{},{},100
+C1,C1_full_mask_ods_3cand,full system: mask + ODS + 3 candidates,brace_placeholder,100.0,0,0.0,0.0,0.0,3.6995,0,{},{},100
+C1,C1_full_mask_ods_3cand,full system: mask + ODS + 3 candidates,printf_placeholder,100.0,0,0.0,0.0,0.0,3.6995,0,{},{},100
+C1,C1_full_mask_ods_3cand,full system: mask + ODS + 3 candidates,html_xml_entity,100.0,0,0.0,0.0,0.0,3.6995,0,{},{},100
+C1,C1_full_mask_ods_3cand,full system: mask + ODS + 3 candidates,html_xml_tag,100.0,0,0.0,0.0,0.0,3.6995,0,{},{},100
+C1,C1_full_mask_ods_3cand,full system: mask + ODS + 3 candidates,number,100.0,0,0.0,0.0,0.0,3.6995,0,{},{},100
+C1,C1_full_mask_ods_3cand,full system: mask + ODS + 3 candidates,newline,100.0,0,0.0,0.0,0.0,3.6995,0,{},{},100
+C1,C1_full_mask_ods_3cand,full system: mask + ODS + 3 candidates,accelerator,100.0,0,0.0,0.0,0.0,3.6995,0,{},{},100
+C2,C2_nomask_ods_3cand,no-mask ablation: no mask + ODS + 3 candidates,qt_placeholder,100.0,0,0.0,0.0,0.0,3.6995,0,{},{},100
+C2,C2_nomask_ods_3cand,no-mask ablation: no mask + ODS + 3 candidates,brace_placeholder,100.0,0,0.0,0.0,0.0,3.6995,0,{},{},100
+C2,C2_nomask_ods_3cand,no-mask ablation: no mask + ODS + 3 candidates,printf_placeholder,100.0,0,0.0,0.0,0.0,3.6995,0,{},{},100
+C2,C2_nomask_ods_3cand,no-mask ablation: no mask + ODS + 3 candidates,html_xml_entity,100.0,0,0.0,0.0,0.0,3.6995,0,{},{},100
+C2,C2_nomask_ods_3cand,no-mask ablation: no mask + ODS + 3 candidates,html_xml_tag,100.0,0,0.0,0.0,0.0,3.6995,0,{},{},100
+C2,C2_nomask_ods_3cand,no-mask ablation: no mask + ODS + 3 candidates,number,100.0,0,0.0,0.0,0.0,3.6995,0,{},{},100
+C2,C2_nomask_ods_3cand,no-mask ablation: no mask + ODS + 3 candidates,newline,97.0,3,0.03,3.0,1.0254,8.4521,3,"{""newline_count_mismatch"": 3}","{""minor"": 3}",100
+C2,C2_nomask_ods_3cand,no-mask ablation: no mask + ODS + 3 candidates,accelerator,98.0,2,0.02,2.0,0.5502,7.0013,2,"{""accelerator_count_mismatch"": 2}","{""minor"": 2}",100
+C3,C3_mask_noods_3cand,no-glossary ablation: mask + no ODS + 3 candidates,qt_placeholder,100.0,0,0.0,0.0,0.0,3.6995,0,{},{},100
+C3,C3_mask_noods_3cand,no-glossary ablation: mask + no ODS + 3 candidates,brace_placeholder,100.0,0,0.0,0.0,0.0,3.6995,0,{},{},100
+C3,C3_mask_noods_3cand,no-glossary ablation: mask + no ODS + 3 candidates,printf_placeholder,100.0,0,0.0,0.0,0.0,3.6995,0,{},{},100
+C3,C3_mask_noods_3cand,no-glossary ablation: mask + no ODS + 3 candidates,html_xml_entity,100.0,0,0.0,0.0,0.0,3.6995,0,{},{},100
+C3,C3_mask_noods_3cand,no-glossary ablation: mask + no ODS + 3 candidates,html_xml_tag,100.0,0,0.0,0.0,0.0,3.6995,0,{},{},100
+C3,C3_mask_noods_3cand,no-glossary ablation: mask + no ODS + 3 candidates,number,100.0,0,0.0,0.0,0.0,3.6995,0,{},{},100
+C3,C3_mask_noods_3cand,no-glossary ablation: mask + no ODS + 3 candidates,newline,100.0,0,0.0,0.0,0.0,3.6995,0,{},{},100
+C3,C3_mask_noods_3cand,no-glossary ablation: mask + no ODS + 3 candidates,accelerator,100.0,0,0.0,0.0,0.0,3.6995,0,{},{},100
+C4,C4_mask_ods_1cand,no-multi-candidate ablation: mask + ODS + 1 candidate,qt_placeholder,100.0,0,0.0,0.0,0.0,3.6995,0,{},{},100
+C4,C4_mask_ods_1cand,no-multi-candidate ablation: mask + ODS + 1 candidate,brace_placeholder,100.0,0,0.0,0.0,0.0,3.6995,0,{},{},100
+C4,C4_mask_ods_1cand,no-multi-candidate ablation: mask + ODS + 1 candidate,printf_placeholder,100.0,0,0.0,0.0,0.0,3.6995,0,{},{},100
+C4,C4_mask_ods_1cand,no-multi-candidate ablation: mask + ODS + 1 candidate,html_xml_entity,100.0,0,0.0,0.0,0.0,3.6995,0,{},{},100
+C4,C4_mask_ods_1cand,no-multi-candidate ablation: mask + ODS + 1 candidate,html_xml_tag,100.0,0,0.0,0.0,0.0,3.6995,0,{},{},100
+C4,C4_mask_ods_1cand,no-multi-candidate ablation: mask + ODS + 1 candidate,number,100.0,0,0.0,0.0,0.0,3.6995,0,{},{},100
+C4,C4_mask_ods_1cand,no-multi-candidate ablation: mask + ODS + 1 candidate,newline,100.0,0,0.0,0.0,0.0,3.6995,0,{},{},100
+C4,C4_mask_ods_1cand,no-multi-candidate ablation: mask + ODS + 1 candidate,accelerator,100.0,0,0.0,0.0,0.0,3.6995,0,{},{},100

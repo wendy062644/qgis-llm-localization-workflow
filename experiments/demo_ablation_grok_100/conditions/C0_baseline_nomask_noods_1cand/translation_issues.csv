@@ -1,0 +1,13 @@
+﻿segment_id,index,context,issue_type,severity,detail,source,translation,locations
+seg_000003_a86386995079,3,QGISAlgorithm,newline_count_mismatch,minor,"source_newlines=1, target_newlines=0","This algorithm takes a points layer and generates a polygon layer containing the voronoi polygons corresponding to those input points.
+",此演算法接受一個點圖層，並產生包含對應於這些輸入點的 Voronoi 多邊形的多邊形圖層。,
+seg_000004_88a117b87000,4,QGISAlgorithm,newline_count_mismatch,minor,"source_newlines=3, target_newlines=2","This algorithm performs a validity check on the geometries of a vector layer.
+The geometries are classified in three groups (valid, invalid and error), and a vector layer is generated with the features in each of these categories.
+By default the algorithm uses the strict OGC definition of polygon validity, where a polygon is marked as invalid if a self-intersecting ring causes an interior hole. If the ""Ignore ring self intersections"" option is checked, then this rule will be ignored and a more lenient validity check will be performed.
+","此演算法會對向量圖層的幾何進行有效性檢查。
+幾何會被分類為三組（有效、無效和錯誤），並為每個類別中的圖徵產生一個向量圖層。
+預設情況下，此演算法使用嚴格的 OGC 多邊形有效性定義，若自相交的環造成內部洞，則將多邊形標記為無效。若勾選「忽略環的自相交」選項，則會忽略此規則並執行更寬鬆的有效性檢查。",
+seg_000020_c2a5f7b0dcc3,20,QObject,newline_count_mismatch,minor,"source_newlines=1, target_newlines=0","<p>Mean value: %1</p>
+",<p>平均值: %1</p>,../src/analysis/processing/qgsalgorithmrasterstatistics.cpp:115
+seg_000063_e35cacfb12c7,63,QgsLayoutDesignerBase,accelerator_count_mismatch,minor,"source_accelerators=['&m'], target_accelerators=['&S'], missing=['&m'], extra=['&S']",S&mart Guides,智慧型參考線(&S),../src/ui/layout/qgslayoutdesignerbase.ui
+seg_000081_4e079ffa6151,81,QgsProjectPropertiesBase,accelerator_count_mismatch,minor,"source_accelerators=['&g'], target_accelerators=['&織'], missing=['&g'], extra=['&織']",Or&ganization,組&織,../src/ui/qgsprojectpropertiesbase.ui

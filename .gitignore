@@ -1,13 +1,15 @@
-.venv/
 __pycache__/
-*.pyc
+*.py[cod]
+.venv/
+venv/
 .env
 .env.*
-*.key
-secrets/
+!.env.example
 runs/
-results/
-# Detailed outputs generated only by optional full_pipeline scripts
-experiments/*/statistics/
-experiments/*/evaluation/
-experiments/*/mqm_quality_grokjudge/
+results/demo_quickstart/
+experiments/*/evaluation/*/
+*.log
+*.jsonl
+.DS_Store
+.vscode/
+.idea/

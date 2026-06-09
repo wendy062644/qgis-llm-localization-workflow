@@ -1,0 +1,276 @@
+[
+  {
+    "condition": {
+      "id": "C0",
+      "slug": "C0_baseline_nomask_noods_1cand",
+      "description": "baseline: no mask + no ODS + 1 candidate",
+      "mask": false,
+      "ods": false,
+      "num_candidates": 1
+    },
+    "summary": {
+      "input_ts": "ablation_grok_100\\subset\\qgis_en_subset_100.ts",
+      "output_ts": "ablation_grok_100\\conditions\\C0_baseline_nomask_noods_1cand\\C0_baseline_nomask_noods_1cand.ts",
+      "provider": "grok",
+      "model_id": "grok-4.3",
+      "workflow": "raw_no_mask_ablation",
+      "total_segments": 100,
+      "num_candidates": 1,
+      "ods_enabled": false,
+      "hard_lock_final": false,
+      "raw_candidate_selection": "first",
+      "api_call_count": 96,
+      "status_counts": {
+        "raw_selected": 96,
+        "segments_with_issues": 5,
+        "copied_language_neutral": 4
+      },
+      "issue_count": 5,
+      "issue_counts": {
+        "newline_count_mismatch": 3,
+        "accelerator_count_mismatch": 2
+      },
+      "severity_counts": {
+        "minor": 5
+      },
+      "xml_well_formed": true,
+      "xml_parse_error": "",
+      "glossary_entry_count": 0,
+      "glossary_matcher": {},
+      "reports": {
+        "translation_log": "ablation_grok_100\\conditions\\C0_baseline_nomask_noods_1cand\\translation_log.jsonl",
+        "translation_issues_csv": "ablation_grok_100\\conditions\\C0_baseline_nomask_noods_1cand\\translation_issues.csv"
+      }
+    },
+    "output_ts": "ablation_grok_100\\conditions\\C0_baseline_nomask_noods_1cand\\C0_baseline_nomask_noods_1cand.ts",
+    "flat_output_ts": "ablation_grok_100\\outputs_ts\\C0_baseline_nomask_noods_1cand.ts",
+    "status": "ok"
+  },
+  {
+    "condition": {
+      "id": "C1",
+      "slug": "C1_full_mask_ods_3cand",
+      "description": "full system: mask + ODS + 3 candidates",
+      "mask": true,
+      "ods": true,
+      "num_candidates": 3
+    },
+    "summary": {
+      "input_ts": "ablation_grok_100\\subset\\qgis_en_subset_100.ts",
+      "output_ts": "ablation_grok_100\\conditions\\C1_full_mask_ods_3cand\\C1_full_mask_ods_3cand.ts",
+      "provider": "grok",
+      "model_id": "grok-4.3",
+      "workflow": "built_in_masked_template_ablation",
+      "total_segments": 100,
+      "num_candidates": 3,
+      "ods_enabled": true,
+      "api_call_count": 96,
+      "status_counts": {
+        "ok_format_safe_template": 89,
+        "copied_language_neutral": 4,
+        "structure_hard_lock_source_fallback": 7
+      },
+      "translated_ok": 89,
+      "format_safe_accept_count": 89,
+      "safe_fallback_count": 7,
+      "candidate_count_total": 288,
+      "issue_count": 0,
+      "issue_counts": {},
+      "severity_counts": {},
+      "xml_well_formed": true,
+      "xml_parse_error": "",
+      "glossary_entry_count": 10353,
+      "glossary_matcher": {
+        "entry_count": 10353,
+        "bucket_sizes_by_ngram_length": {
+          "3": 1844,
+          "2": 5988,
+          "1": 1539,
+          "4": 660,
+          "7": 26,
+          "6": 52,
+          "5": 231,
+          "8": 9
+        },
+        "max_ngram": 8
+      },
+      "reports": {
+        "translation_log": "ablation_grok_100\\conditions\\C1_full_mask_ods_3cand\\translation_log.jsonl",
+        "translation_issues_csv": "ablation_grok_100\\conditions\\C1_full_mask_ods_3cand\\translation_issues.csv"
+      },
+      "mask": true,
+      "standalone_builtin_mask_used": true,
+      "glossary_warnings": []
+    },
+    "output_ts": "ablation_grok_100\\conditions\\C1_full_mask_ods_3cand\\C1_full_mask_ods_3cand.ts",
+    "flat_output_ts": "ablation_grok_100\\outputs_ts\\C1_full_mask_ods_3cand.ts",
+    "status": "ok"
+  },
+  {
+    "condition": {
+      "id": "C2",
+      "slug": "C2_nomask_ods_3cand",
+      "description": "no-mask ablation: no mask + ODS + 3 candidates",
+      "mask": false,
+      "ods": true,
+      "num_candidates": 3
+    },
+    "summary": {
+      "input_ts": "ablation_grok_100\\subset\\qgis_en_subset_100.ts",
+      "output_ts": "ablation_grok_100\\conditions\\C2_nomask_ods_3cand\\C2_nomask_ods_3cand.ts",
+      "provider": "grok",
+      "model_id": "grok-4.3",
+      "workflow": "raw_no_mask_ablation",
+      "total_segments": 100,
+      "num_candidates": 3,
+      "ods_enabled": true,
+      "hard_lock_final": false,
+      "raw_candidate_selection": "best_format",
+      "api_call_count": 96,
+      "status_counts": {
+        "raw_selected": 96,
+        "segments_with_issues": 5,
+        "copied_language_neutral": 4
+      },
+      "issue_count": 5,
+      "issue_counts": {
+        "newline_count_mismatch": 3,
+        "accelerator_count_mismatch": 2
+      },
+      "severity_counts": {
+        "minor": 5
+      },
+      "xml_well_formed": true,
+      "xml_parse_error": "",
+      "glossary_entry_count": 10353,
+      "glossary_matcher": {
+        "entry_count": 10353,
+        "bucket_sizes_by_ngram_length": {
+          "3": 1844,
+          "2": 5988,
+          "1": 1539,
+          "4": 660,
+          "7": 26,
+          "6": 52,
+          "5": 231,
+          "8": 9
+        },
+        "max_ngram": 8
+      },
+      "reports": {
+        "translation_log": "ablation_grok_100\\conditions\\C2_nomask_ods_3cand\\translation_log.jsonl",
+        "translation_issues_csv": "ablation_grok_100\\conditions\\C2_nomask_ods_3cand\\translation_issues.csv"
+      }
+    },
+    "output_ts": "ablation_grok_100\\conditions\\C2_nomask_ods_3cand\\C2_nomask_ods_3cand.ts",
+    "flat_output_ts": "ablation_grok_100\\outputs_ts\\C2_nomask_ods_3cand.ts",
+    "status": "ok"
+  },
+  {
+    "condition": {
+      "id": "C3",
+      "slug": "C3_mask_noods_3cand",
+      "description": "no-glossary ablation: mask + no ODS + 3 candidates",
+      "mask": true,
+      "ods": false,
+      "num_candidates": 3
+    },
+    "summary": {
+      "input_ts": "ablation_grok_100\\subset\\qgis_en_subset_100.ts",
+      "output_ts": "ablation_grok_100\\conditions\\C3_mask_noods_3cand\\C3_mask_noods_3cand.ts",
+      "provider": "grok",
+      "model_id": "grok-4.3",
+      "workflow": "built_in_masked_template_ablation",
+      "total_segments": 100,
+      "num_candidates": 3,
+      "ods_enabled": false,
+      "api_call_count": 96,
+      "status_counts": {
+        "ok_format_safe_template": 89,
+        "copied_language_neutral": 4,
+        "structure_hard_lock_source_fallback": 7
+      },
+      "translated_ok": 89,
+      "format_safe_accept_count": 89,
+      "safe_fallback_count": 7,
+      "candidate_count_total": 288,
+      "issue_count": 0,
+      "issue_counts": {},
+      "severity_counts": {},
+      "xml_well_formed": true,
+      "xml_parse_error": "",
+      "glossary_entry_count": 0,
+      "glossary_matcher": {},
+      "reports": {
+        "translation_log": "ablation_grok_100\\conditions\\C3_mask_noods_3cand\\translation_log.jsonl",
+        "translation_issues_csv": "ablation_grok_100\\conditions\\C3_mask_noods_3cand\\translation_issues.csv"
+      },
+      "mask": true,
+      "standalone_builtin_mask_used": true,
+      "glossary_warnings": []
+    },
+    "output_ts": "ablation_grok_100\\conditions\\C3_mask_noods_3cand\\C3_mask_noods_3cand.ts",
+    "flat_output_ts": "ablation_grok_100\\outputs_ts\\C3_mask_noods_3cand.ts",
+    "status": "ok"
+  },
+  {
+    "condition": {
+      "id": "C4",
+      "slug": "C4_mask_ods_1cand",
+      "description": "no-multi-candidate ablation: mask + ODS + 1 candidate",
+      "mask": true,
+      "ods": true,
+      "num_candidates": 1
+    },
+    "summary": {
+      "input_ts": "ablation_grok_100\\subset\\qgis_en_subset_100.ts",
+      "output_ts": "ablation_grok_100\\conditions\\C4_mask_ods_1cand\\C4_mask_ods_1cand.ts",
+      "provider": "grok",
+      "model_id": "grok-4.3",
+      "workflow": "built_in_masked_template_ablation",
+      "total_segments": 100,
+      "num_candidates": 1,
+      "ods_enabled": true,
+      "api_call_count": 96,
+      "status_counts": {
+        "ok_format_safe_template": 88,
+        "copied_language_neutral": 4,
+        "structure_hard_lock_source_fallback": 8
+      },
+      "translated_ok": 88,
+      "format_safe_accept_count": 88,
+      "safe_fallback_count": 8,
+      "candidate_count_total": 96,
+      "issue_count": 0,
+      "issue_counts": {},
+      "severity_counts": {},
+      "xml_well_formed": true,
+      "xml_parse_error": "",
+      "glossary_entry_count": 10353,
+      "glossary_matcher": {
+        "entry_count": 10353,
+        "bucket_sizes_by_ngram_length": {
+          "3": 1844,
+          "2": 5988,
+          "1": 1539,
+          "4": 660,
+          "7": 26,
+          "6": 52,
+          "5": 231,
+          "8": 9
+        },
+        "max_ngram": 8
+      },
+      "reports": {
+        "translation_log": "ablation_grok_100\\conditions\\C4_mask_ods_1cand\\translation_log.jsonl",
+        "translation_issues_csv": "ablation_grok_100\\conditions\\C4_mask_ods_1cand\\translation_issues.csv"
+      },
+      "mask": true,
+      "standalone_builtin_mask_used": true,
+      "glossary_warnings": []
+    },
+    "output_ts": "ablation_grok_100\\conditions\\C4_mask_ods_1cand\\C4_mask_ods_1cand.ts",
+    "flat_output_ts": "ablation_grok_100\\outputs_ts\\C4_mask_ods_1cand.ts",
+    "status": "ok"
+  }
+]

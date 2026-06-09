@@ -1,173 +1,150 @@
-# QGIS LLM Localization — 表格精簡重現套件
+# QGIS LLM 在地化 Mini Full Repro Package
 
-English version: [README.md](README.md)
+這份 package 是 QGIS LLM localization workflow 的**縮小版完整實驗重現包**。它保留論文的實驗流程結構，但預設把 3000 筆 ablation 改成 **100 筆**，讓 reviewer 可以快速執行。
 
-這是論文 **Toward Reliable Localization of Free and Open Source Software: LLM-assisted Translation Workflows for QGIS** 的精簡可重現套件。
+預設流程**不會呼叫模型 API**。它會使用已封存的 100 筆翻譯後 `.ts` 輸出，重新跑 deterministic evaluation、condition comparison，以及 MQM 評分請求產生流程。
 
-預設指令刻意設計成小型、離線、快速。它們**不會**呼叫 Grok、Gemini 或 TAIDE，也**不會**重新跑 3000 筆或 full-corpus 實驗。預設只會重新產生並印出論文中會出現的表格，而且 CSV 欄位會對齊論文表格欄位。
+## 這份 package 可以重現什麼
 
-## 1. 這個套件會重現什麼
+| 層級 | 指令 | 需要模型呼叫？ | 用途 |
+|---|---|---:|---|
+| Mini full reproduction | `python scripts/run_repro.py full-mini` | 不需要 | 對封存的 100 筆 C0-C4 輸出重跑 deterministic scoring、比較條件，並產生小型 MQM request plan。 |
+| 只跑 deterministic scoring | `python scripts/run_repro.py score --experiment demo_ablation_grok_100 --force-eval` | 不需要 | 從封存 `.ts` 重新計算 structure 與 deterministic QA metrics。 |
+| 產生 MQM 評分請求 | `python scripts/run_repro.py mqm --experiment demo_ablation_grok_100 --total-request-budget 5` | 不需要 | 建立 MQM judge requests，但不送出 API。 |
+| 實際跑 MQM judge | `python scripts/run_repro.py mqm --experiment demo_ablation_grok_100 --total-request-budget 5 --run-grok` | 需要 Grok/xAI key | 實際執行小型 MQM-style judge evaluation。 |
+| 重新翻譯小樣本 | `python scripts/run_repro.py translate --provider grok --sample-size 20 --conditions C1 --run-eval` | 需要 API key | 使用 API backend 重新產生小型翻譯實驗。 |
 
-預設 workflow 會重新產生這些精簡表格：
+## 安裝
 
-```text
-artifacts/paper_tables/table1_model_backends.csv
-artifacts/paper_tables/table2_ablation_conditions.csv
-artifacts/paper_tables/table3_ablation.csv
-artifacts/paper_tables/table4_full_corpus.csv
-artifacts/paper_tables/artifact_map.csv
-```
-
-最重要的結果表格是：
-
-```text
-artifacts/paper_tables/table3_ablation.csv
-artifacts/paper_tables/table4_full_corpus.csv
-```
-
-Python console 輸出也只保留表格內容。它只會印出 compact ablation table 和 full-corpus C1 table，不會輸出詳細 diagnostics CSV、MQM merged rows、structure pivots、request logs 或 translation logs。
-
-## 2. 環境需求
-
-建議使用 Python 3.10 或更新版本。
-
-預設 quickstart 只需要 Python standard library。仍然保留 `requirements.txt`，讓 reviewer 可以按照一般 reproducibility 流程建立環境。
-
-## 3. macOS / Linux 快速執行步驟
-
-在新的 terminal 中，一行一行執行：
+### macOS / Linux
 
 ```bash
-cd qgis_translation_repro_table_only
+cd qgis_translation_mini_full_repro
 python -m venv .venv
 source .venv/bin/activate
 python -m pip install --upgrade pip
 pip install -r requirements.txt
-python scripts/run_repro.py quickstart
 ```
 
-預期結果：terminal 會印出兩個 Markdown 表格：
-
-```text
-Compact ablation summary on the 3000-segment subset
-Full-corpus C1 production-condition comparison
-```
-
-重新產生的 CSV 和 Markdown 表格會寫到：
-
-```text
-artifacts/paper_tables/
-```
-
-## 4. Windows PowerShell 快速執行步驟
-
-在新的 PowerShell 視窗中，一行一行執行：
+### Windows PowerShell
 
 ```powershell
-cd qgis_translation_repro_table_only
+cd qgis_translation_mini_full_repro
 python -m venv .venv
 .\.venv\Scripts\Activate.ps1
 python -m pip install --upgrade pip
 pip install -r requirements.txt
-python scripts/run_repro.py quickstart
 ```
 
-如果 PowerShell 阻擋 virtual environment 啟動，先執行：
-
-```powershell
-Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass
-.\.venv\Scripts\Activate.ps1
-```
-
-再接著執行：
-
-```powershell
-python -m pip install --upgrade pip
-pip install -r requirements.txt
-python scripts/run_repro.py quickstart
-```
-
-## 5. Reviewer 可用指令
-
-重新產生並印出論文表格：
+## 執行預設 mini full reproduction
 
 ```bash
-python scripts/run_repro.py quickstart
+python scripts/run_repro.py full-mini
 ```
 
-`quickstart` 的別名：
+這個指令會執行：
 
-```bash
-python scripts/run_repro.py tables
-```
+1. 對 `experiments/demo_ablation_grok_100/outputs_ts/*.ts` 重新跑 deterministic evaluator；
+2. 對 C0-C4 重新跑 scorer / comparison；
+3. 產生一個總共 5 筆 request 的 MQM dry-run plan，不呼叫 API。
 
-列出套件內保留的精簡 CSV 表格與 archived translated outputs：
-
-```bash
-python scripts/run_repro.py list
-```
-
-## 6. 套件內保留的內容
-
-這個套件只保留精簡表格重現與審查需要的檔案：
+主要輸出位置：
 
 ```text
-data/raw/qgis_en.ts
-data/glossary/1.ods
-data/glossary/2.ods
-configs/conditions.json
-configs/suites.json
-artifacts/paper_tables/*.csv
-artifacts/paper_tables/*.md
-experiments/*/outputs_ts/*.ts
-experiments/*/workflow_manifest.json
-experiments/*/conditions/*/condition.json
-experiments/*/subset/subset_summary.json
-scripts/run_repro.py
-scripts/reproduce_paper_tables.py
-scripts/full_pipeline/
+experiments/demo_ablation_grok_100/statistics/
+results/mini_full_compare/
+results/mini_mqm_plan/
 ```
 
-詳細中間 CSV 與 logs 預設不放入此套件。保留下來的 CSV 只包含論文表格中會出現的欄位。
+## 只跑 deterministic scoring
 
-## 7. 選用的完整 pipeline 程式
+```bash
+python scripts/run_repro.py score --experiment demo_ablation_grok_100 --force-eval
+```
 
-原始 workflow 程式碼保留在：
+重要輸出：
 
 ```text
-scripts/full_pipeline/
+experiments/demo_ablation_grok_100/statistics/condition_summary.csv
+experiments/demo_ablation_grok_100/statistics/structure_items_long.csv
+experiments/demo_ablation_grok_100/statistics/ablation_statistics_report.md
 ```
 
-這些程式不屬於預設 quickstart，因為它們可能會產生額外 diagnostics，而且執行時間較長。只有在需要檢查或改寫完整 workflow 時，才安裝選用相依套件：
+## 不呼叫 API，只產生 MQM judge requests
 
 ```bash
-pip install -r requirements-full.txt
+python scripts/run_repro.py mqm \
+  --experiment demo_ablation_grok_100 \
+  --total-request-budget 5
 ```
 
-table-only quickstart 不需要這些選用相依套件。
+這會產生：
 
-## 8. API key
+```text
+results/mini_mqm_plan/mqm_requests.jsonl
+results/mini_mqm_plan/selected_mqm_segments.csv
+results/mini_mqm_plan/mqm_report.md
+```
 
-這個套件不包含 API key。預設 quickstart 不需要任何 API key。
+## 實際呼叫 MQM judge
 
-如果要重新呼叫 API 翻譯，請使用環境變數，不要把 key 寫死在 Python 檔案：
+這需要 Grok/xAI API key。
 
 ```bash
-export XAI_API_KEY="..."
-export GEMINI_API_KEY="..."
+export XAI_API_KEY="your_key_here"
+python scripts/run_repro.py mqm \
+  --experiment demo_ablation_grok_100 \
+  --total-request-budget 5 \
+  --run-grok
 ```
 
 Windows PowerShell：
 
 ```powershell
-$env:XAI_API_KEY="..."
-$env:GEMINI_API_KEY="..."
+$env:XAI_API_KEY="your_key_here"
+python scripts/run_repro.py mqm --experiment demo_ablation_grok_100 --total-request-budget 5 --run-grok
 ```
 
-請不要 commit `.env`、token 檔、request logs 或 private credentials。
+預設 budget 很小，避免 reviewer 一開始就花太多時間或 API 成本。若需要更多 judge segments，再提高 `--total-request-budget` 或 `--sample-size`。
 
-## 9. 結果解讀方式
+## 可選：重新跑一個小型翻譯實驗
 
-這個 table-only 套件的用途是讓 reviewer 快速確認論文表格可以從 archived artifact 重新產生，而且不需要新的模型呼叫。
+```bash
+export XAI_API_KEY="your_key_here"
+python scripts/run_repro.py translate \
+  --provider grok \
+  --sample-size 20 \
+  --conditions C0,C1,C2,C3,C4 \
+  --run-eval
+```
 
-它預設不是完整高成本重跑套件。完整翻譯重跑需要模型存取權、API keys 或 local model 設定，也需要更長的執行時間。
+Gemini：
+
+```bash
+export GEMINI_API_KEY="your_key_here"
+python scripts/run_repro.py translate \
+  --provider gemini \
+  --sample-size 20 \
+  --conditions C1 \
+  --run-eval
+```
+
+新產生的實驗會輸出到 `runs/`。
+
+## 內含資料
+
+```text
+data/raw/qgis_en.ts                         原始 QGIS TS input
+data/glossary/1.ods, data/glossary/2.ods    ODS glossary resources
+experiments/demo_ablation_grok_100/          已封存的 100 筆 C0-C4 demo
+scripts/                                     workflow、scoring、comparison、MQM tools
+configs/conditions.json                      C0-C4 condition definitions
+```
+
+## 重要限制
+
+- 這是**縮小版重現包**：預設 100 筆，不是論文完整 3000 筆 ablation。
+- 預設 `full-mini` 不會重新翻譯，而是從封存 `.ts` 重新計算 metrics。
+- 如果使用 `--run-grok`，MQM judge 需要 API key。
+- 這份 package 支援 Grok 與 Gemini 的 API rerun。TAIDE/local rerun 需要額外的 Hugging Face 本地推論環境，這裡沒有包成一鍵指令。
+- API 模型輸出可能隨時間改變；最穩定的 no-API 重現路徑是 archived-output scoring。

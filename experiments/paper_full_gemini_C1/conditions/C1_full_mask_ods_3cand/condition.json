@@ -1,8 +1,0 @@
-{
-  "id": "C1",
-  "slug": "C1_full_mask_ods_3cand",
-  "description": "full system: mask + ODS + 3 candidates",
-  "mask": true,
-  "ods": true,
-  "num_candidates": 3
-}
