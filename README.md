@@ -141,6 +141,13 @@ scripts/                                     Workflow, scoring, comparison, MQM 
 configs/conditions.json                      C0-C4 condition definitions
 ```
 
+## Released Translation Datasets
+
+The released Traditional Chinese localization files are also available as public datasets in depositar:
+
+- QGIS 4.0 zh-Hant Translation Dataset (TS/QM Files): https://pid.depositar.io/ark:37281/k5f167n46
+- QGIS 3.44 LTR zh-Hant Translation Dataset (TS/QM Files): https://pid.depositar.io/ark:37281/k5g11462n
+
 ## Important limitations
 
 - The default package is a **mini reproduction**: 100 segments, not the full 3000-segment paper ablation.
